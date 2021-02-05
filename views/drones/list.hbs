@@ -1,1 +1,35 @@
-<h2>Available drones</h2>
+<div class="white">
+    <h2>Available drones</h2>
+
+    <table class="table">
+        <thead class="table-dark">
+            <td>Name</td>
+            <td>Propelller</td>
+            <td>Maximum speed</td>
+            <td></td>
+        </thead>
+        <tbody></tbody>
+
+        {{#each drones}}
+        <tr>
+            <td><a href="/drones/{{this._id}}/edit">
+                    <div>{{this.name}}</div>
+                </a> </td>
+            <td>{{this.propellers}}</td>
+            <td>{{this.maxSpeed}}</td>
+            <td>
+                <form method="post" action="/drones/{{this._id}}/delete">
+                    <button type="submit" class="btn btn-primary">Delete</button>
+
+                </form>
+            </td>
+        </tr>
+        {{/each}}
+        </tbody>
+    </table>
+    {{#if problem}}
+    <h3>Somethings went wrong.</h3>
+    <h3> The drone can not be deleted.</h3>
+    <h3>Please try again"</h3>
+    {{/if}}
+</div>

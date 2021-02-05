@@ -1,1 +1,23 @@
 <h2>Update the drone</h2>
+
+<form method="POST" action="/drones/{{drone._id}}/edit">
+  <div class="mb-3">
+    <label for="name" class="form-label">Name</label>
+    <input name="name" value="{{drone.name}}" type="text" class="form-control" required="true" id="droneName">
+  </div>
+  <div class="mb-3">
+    <label for="propellers" class="form-label">Propellers</label>
+    <input name="propellers" value="{{drone.propellers}}" type="number" min="1" class="form-control" required="true"
+      id="propellers">
+  </div>
+  <div class="mb-3">
+    <label for="maxSpeed" class="form-label">Maximum Speed</label>
+    <input name="maxSpeed" value="{{drone.maxSpeed}}" type="number" min="1" class="form-control" required="true"
+      id="maxSpeed">
+  </div>
+
+  <button type="submit" class="btn btn-primary">Update</button>
+</form>
+{{#if problem}}
+<h3>"Please check your information and try again. theDrone was not saved."</h3>
+{{/if}}
